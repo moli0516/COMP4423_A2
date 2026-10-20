@@ -47,7 +47,6 @@ dataset_dev/**/*.heic
 !outputs/**/*.json
 !outputs/**/*.csv
 
-*_checks/
 models_dev/
 models_oop_verified/
 models_runs/
@@ -56,6 +55,7 @@ results_oop_verified/
 results_runs/
 outputs/
 original/
+outputs/.app_state.json
 _archive/
 *.zip
 *.jpg
