@@ -38,5 +38,5 @@ class ApplicationTests(unittest.TestCase):
 
     def test_default_root(self):
         from pathlib import Path
-        expected = Path(__file__).resolve().parents[1]
+        expected = Path(__file__).resolve().parents[2]
         self.assertEqual(Application().root, expected)

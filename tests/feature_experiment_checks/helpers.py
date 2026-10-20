@@ -10,9 +10,9 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 
-from feature_experiment_checks.fixture_feature_config import FixtureFeatureConfig
-from feature_experiment_checks.fixture_preprocessing_config import FixturePreprocessingConfig
-from feature_experiment_checks.no_decode_transformer import NoDecodeTransformer
+from tests.feature_experiment_checks.fixture_feature_config import FixtureFeatureConfig
+from tests.feature_experiment_checks.fixture_preprocessing_config import FixturePreprocessingConfig
+from tests.feature_experiment_checks.no_decode_transformer import NoDecodeTransformer
 from src.experiments.feature_ablation.feature_experiment_config import FeatureExperimentConfig
 
 

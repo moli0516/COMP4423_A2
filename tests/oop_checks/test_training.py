@@ -7,7 +7,7 @@ from unittest.mock import patch
 import joblib
 import numpy as np
 
-from oop_checks.helpers import make_dataset
+from tests.oop_checks.helpers import make_dataset
 from src.preprocessing import ImagePreprocessor
 from src.train import run_training, score_predictions, to_python
 from src.training.constants import FEATURE_SETS

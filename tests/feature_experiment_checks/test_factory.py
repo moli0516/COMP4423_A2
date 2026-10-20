@@ -3,7 +3,7 @@ import unittest
 
 import numpy as np
 
-from feature_experiment_checks.helpers import fixture, dimension
+from tests.feature_experiment_checks.helpers import fixture, dimension
 from src.experiments.feature_ablation.feature_pipeline_factory import FeaturePipelineFactory
 from src.experiments.feature_ablation.feature_variant import FeatureVariant
 

@@ -4,7 +4,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from feature_experiment_checks.helpers import fixture, dimension
+from tests.feature_experiment_checks.helpers import fixture, dimension
 from src.experiments.feature_ablation.feature_experiment_planner import FeatureExperimentPlanner
 
 

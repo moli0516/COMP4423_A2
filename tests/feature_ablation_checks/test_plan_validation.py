@@ -7,7 +7,7 @@ from unittest.mock import patch
 
 from sklearn.linear_model import LogisticRegression
 
-from feature_ablation_checks.helpers import build_case
+from tests.feature_ablation_checks.helpers import build_case
 from src.experiments.feature_ablation.feature_experiment_runner import FeatureExperimentRunner
 
 

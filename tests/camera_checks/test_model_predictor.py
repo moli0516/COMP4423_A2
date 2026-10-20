@@ -12,7 +12,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import FunctionTransformer
 
-from camera_checks.helpers import rgb_features
+from tests.camera_checks.helpers import rgb_features
 from src.camera.camera_config import CameraConfig
 from src.camera.model_predictor import ModelPredictor
 
@@ -87,5 +87,5 @@ class ModelPredictorTests(unittest.TestCase):
                 "f=np.zeros((24,32,3),dtype=np.uint8); f[:]=(0,0,255); "
                 "r=ModelPredictor(sys.argv[1]).predict(f,0); assert r.label==1"
             )
-            completed = subprocess.run([sys.executable, "-c", program, str(path)], cwd=Path(__file__).resolve().parents[1], capture_output=True, text=True, timeout=15)
+            completed = subprocess.run([sys.executable, "-c", program, str(path)], cwd=Path(__file__).resolve().parents[2], capture_output=True, text=True, timeout=15)
             self.assertEqual(completed.returncode, 0, completed.stderr)

@@ -2,7 +2,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from oop_checks.helpers import make_dataset, write_csv
+from tests.oop_checks.helpers import make_dataset, write_csv
 from src.data import DatasetCatalog
 from src.exceptions import TrainingError
 
@@ -31,7 +31,7 @@ class DatasetCatalogTests(unittest.TestCase):
     def test_duplicate_image_path_rejected(self):
         self.images[1]["relative_path"] = self.images[0]["relative_path"]
         self.rewrite_images()
-        with self.assertRaisesRegex(TrainingError, "duplicate image path"):
+        with self.assertRaisesRegex(TrainingError, "duplicate relative_path"):
             DatasetCatalog(self.root).load()
 
     def test_group_split_leakage_rejected(self):
@@ -49,7 +49,7 @@ class DatasetCatalogTests(unittest.TestCase):
     def test_path_escape_rejected(self):
         self.images[0]["relative_path"] = "../escape.png"
         self.rewrite_images()
-        with self.assertRaisesRegex(TrainingError, "leaves dataset"):
+        with self.assertRaisesRegex(TrainingError, "leaves the dataset directory"):
             DatasetCatalog(self.root).load()
 
     def test_unverified_guard_and_override(self):

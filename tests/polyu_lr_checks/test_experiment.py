@@ -11,7 +11,7 @@ import joblib
 import numpy as np
 from sklearn.exceptions import ConvergenceWarning
 
-from polyu_lr_checks.helpers import fixture
+from tests.polyu_lr_checks.helpers import fixture
 from src.experiments.polyu_holdout_experiment import PolyuHoldoutExperiment
 
 
@@ -24,7 +24,7 @@ class ExperimentTests(unittest.TestCase):
     def test_dry_run_does_not_decode_images_fit_or_create_outputs(self):
         with tempfile.TemporaryDirectory() as folder:
             config, _, runner = self.setup_case(folder)
-            with patch("polyu_lr_checks.hog_test_transformer.Image.open", side_effect=AssertionError("Image opened")):
+            with patch("tests.polyu_lr_checks.hog_test_transformer.Image.open", side_effect=AssertionError("Image opened")):
                 result = runner.run(dry_run=True)
             self.assertTrue(result["dry_run"])
             self.assertFalse(config.output_dir.exists())
@@ -75,7 +75,7 @@ class ExperimentTests(unittest.TestCase):
                 self.assertFalse(Path(path).name.startswith("test_"))
                 opened.append(str(path))
                 return original_open(path, *args, **kwargs)
-            with patch("polyu_lr_checks.hog_test_transformer.Image.open", guarded_open):
+            with patch("tests.polyu_lr_checks.hog_test_transformer.Image.open", guarded_open):
                 result = runner.run()
             self.assertEqual(len(result["comparison"]), 7)
             self.assertEqual(result["manifest"]["status"], "completed")
@@ -89,7 +89,7 @@ class ExperimentTests(unittest.TestCase):
             paths = [config.dataset_dir / row["relative_path"] for row in loader(config)["by_split"]["validation"]]
             self.assertEqual(len(model.predict(paths)), 4)
             program = "import joblib,sys; m=joblib.load(sys.argv[1]); assert len(m.predict(sys.argv[2:]))==4"
-            completed = subprocess.run([sys.executable, "-c", program, str(model_path), *map(str, paths)], cwd=Path(__file__).resolve().parents[1], capture_output=True, text=True, timeout=15)
+            completed = subprocess.run([sys.executable, "-c", program, str(model_path), *map(str, paths)], cwd=Path(__file__).resolve().parents[2], capture_output=True, text=True, timeout=15)
             self.assertEqual(completed.returncode, 0, completed.stderr)
 
     def test_reference_feature_set_is_enforced(self):

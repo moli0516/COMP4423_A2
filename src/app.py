@@ -87,6 +87,15 @@ def describe_pipeline(pipeline) -> dict:
     return {"steps": steps}
 
 
+def extract_features(pipeline, data: bytes):
+    """Run every pipeline step except the classifier, exactly as Pipeline.predict does."""
+    features = [data]
+    for _, step in pipeline.steps[:-1]:
+        if step is not None and step != "passthrough":
+            features = step.transform(features)
+    return features
+
+
 def score_inside(classifier, features) -> tuple[float | None, str | None]:
     """Auxiliary confidence value; the label itself always comes from classifier.predict."""
     if hasattr(classifier, "decision_function"):
@@ -184,8 +193,8 @@ class ModelStore:
             pipeline = self.load(model_id)
         started = time.perf_counter()
         # Same steps as Pipeline.predict, but features are extracted only once.
-        features = pipeline[:-1].transform([data])
-        classifier = pipeline[-1]
+        features = extract_features(pipeline, data)
+        classifier = pipeline.steps[-1][1]
         label = int(classifier.predict(features)[0])
         score, score_kind = score_inside(classifier, features)
         return {

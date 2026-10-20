@@ -4,7 +4,7 @@ import unittest
 from dataclasses import FrozenInstanceError, replace
 from pathlib import Path
 
-from feature_experiment_checks.helpers import fixture
+from tests.feature_experiment_checks.helpers import fixture
 from src.experiments.feature_ablation.feature_experiment_config import FeatureExperimentConfig
 
 

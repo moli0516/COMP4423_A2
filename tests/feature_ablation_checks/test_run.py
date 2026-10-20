@@ -14,8 +14,8 @@ from PIL import Image
 from sklearn.exceptions import ConvergenceWarning
 from sklearn.linear_model import LogisticRegression
 
-from feature_ablation_checks.helpers import build_case, tree_digest
-from feature_ablation_checks.test_plan_validation import make_runner
+from tests.feature_ablation_checks.helpers import build_case, tree_digest
+from tests.feature_ablation_checks.test_plan_validation import make_runner
 from src.experiments.feature_ablation import feature_experiment_runner as runner_module
 
 
@@ -63,7 +63,7 @@ class RunTests(unittest.TestCase):
             with Image.open(case["paths"]["validation"][0]) as image:
                 self.assertEqual(int(model.predict([image.copy()])[0]), int(model.predict(case["paths"]["validation"][:1])[0]))
             program = "import joblib,sys; m=joblib.load(sys.argv[1]); assert len(m.predict(sys.argv[2:]))==4"
-            completed = subprocess.run([sys.executable, "-c", program, str(model_path), *map(str, case["paths"]["validation"])], cwd=Path(__file__).resolve().parents[1], capture_output=True, text=True, timeout=20)
+            completed = subprocess.run([sys.executable, "-c", program, str(model_path), *map(str, case["paths"]["validation"])], cwd=Path(__file__).resolve().parents[2], capture_output=True, text=True, timeout=20)
             self.assertEqual(completed.returncode, 0, completed.stderr)
 
     def test_reference_mismatch_stops_before_alternatives(self):

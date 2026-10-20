@@ -4,9 +4,9 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from feature_ablation_checks.helpers import build_case
+from tests.feature_ablation_checks.helpers import build_case
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 
 
 def run_script(*arguments):

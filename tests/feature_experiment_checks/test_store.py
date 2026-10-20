@@ -2,7 +2,7 @@ import json
 import tempfile
 import unittest
 
-from feature_experiment_checks.helpers import fixture, dimension
+from tests.feature_experiment_checks.helpers import fixture, dimension
 from src.experiments.feature_ablation.feature_experiment_planner import FeatureExperimentPlanner
 from src.experiments.feature_ablation.experiment_plan_store import ExperimentPlanStore
 

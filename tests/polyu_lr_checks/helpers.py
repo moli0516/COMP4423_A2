@@ -10,7 +10,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
 
-from polyu_lr_checks.hog_test_transformer import HogTestTransformer
+from tests.polyu_lr_checks.hog_test_transformer import HogTestTransformer
 from src.experiments.polyu_lr_config import PolyuLRConfig
 
 

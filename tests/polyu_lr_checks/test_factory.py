@@ -2,8 +2,8 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-from polyu_lr_checks.helpers import fixture
-from polyu_lr_checks.hog_test_transformer import HogTestTransformer
+from tests.polyu_lr_checks.helpers import fixture
+from tests.polyu_lr_checks.hog_test_transformer import HogTestTransformer
 from src.experiments.polyu_pipeline_factory import PolyuPipelineFactory
 
 

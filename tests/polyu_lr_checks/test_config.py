@@ -4,7 +4,7 @@ import unittest
 from dataclasses import FrozenInstanceError, replace
 from pathlib import Path
 
-from polyu_lr_checks.helpers import fixture
+from tests.polyu_lr_checks.helpers import fixture
 from src.experiments.polyu_lr_config import PolyuLRConfig
 
 

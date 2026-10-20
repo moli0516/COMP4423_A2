@@ -67,9 +67,10 @@ class PreprocessingAndFeatureTests(unittest.TestCase):
             expected = extract_features(load_and_preprocess(path))
             np.testing.assert_allclose(actual[0], expected)
 
-    def test_empty_path_sequence_rejected(self):
-        with self.assertRaises(ValueError):
-            ImageFeatureExtractor().transform([])
+    def test_empty_path_sequence_returns_empty_matrix(self):
+        matrix = ImageFeatureExtractor().transform([])
+        self.assertEqual(matrix.ndim, 2)
+        self.assertEqual(matrix.shape[0], 0)
 
     def test_single_string_path_rejected(self):
         with self.assertRaises(ValueError):
