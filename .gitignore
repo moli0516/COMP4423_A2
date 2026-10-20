@@ -46,3 +46,15 @@ dataset_dev/**/*.heic
 # Small text results are fine to track (metrics, reports, validation tables).
 !outputs/**/*.json
 !outputs/**/*.csv
+
+*_checks/
+models_dev/
+models_oop_verified/
+models_runs/
+results_dev/
+results_oop_verified/
+results_runs/
+outputs/
+original/
+_archive/
+*.zip

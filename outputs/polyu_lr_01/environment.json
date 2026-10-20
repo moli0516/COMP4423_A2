@@ -1,8 +1,0 @@
-{
-  "python": "3.13.7",
-  "scikit_learn": "1.9.1",
-  "numpy": "2.5.4",
-  "Pillow": "12.3.0",
-  "scikit_image": "0.26.0",
-  "joblib": "1.6.0"
-}

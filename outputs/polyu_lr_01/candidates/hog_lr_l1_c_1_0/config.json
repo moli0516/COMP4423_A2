@@ -1,6 +1,0 @@
-{
-  "id": "hog_lr_l1_c_1_0",
-  "family": "logistic_regression",
-  "penalty": "l1",
-  "C": 1.0
-}
