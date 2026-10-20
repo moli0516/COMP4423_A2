@@ -57,6 +57,7 @@ outputs/
 original/
 outputs/.app_state.json
 _archive/
+dataset_dev/
 results/
 results_runs_v2/
 *.zip
