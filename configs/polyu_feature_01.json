@@ -1,0 +1,10 @@
+{
+  "experiment_id": "POLYU-FEATURE-01",
+  "dataset_dir": "dataset_dev",
+  "reference_model": "outputs/polyu_lr_01/best/pipeline.joblib",
+  "reference_metadata": "outputs/polyu_lr_01/best/pipeline_metadata.json",
+  "reference_result": "outputs/polyu_lr_01/best_result.json",
+  "plan_dir": "outputs/polyu_feature_01/plan",
+  "allow_unverified": true,
+  "camera_diagnostic_status": "pending"
+}

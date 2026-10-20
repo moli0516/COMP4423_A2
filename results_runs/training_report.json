@@ -1,0 +1,225 @@
+{
+  "model_file": "pipeline.joblib",
+  "class_labels": {
+    "0": "outside",
+    "1": "inside"
+  },
+  "feature_set": "hog",
+  "feature_config": {
+    "use_color": false,
+    "color_bins": 16,
+    "color_grid": 1,
+    "use_hog": true,
+    "hog_orientations": 9,
+    "hog_pixels_per_cell": 32,
+    "hog_cells_per_block": 2,
+    "use_lbp": false,
+    "lbp_points": 8,
+    "lbp_radius": 1
+  },
+  "preprocessing_config": {
+    "image_size": 256,
+    "resize_mode": "squash",
+    "pad_value": 0
+  },
+  "classifier": "svm",
+  "classifier_params": {
+    "kernel": "linear",
+    "C": 0.1
+  },
+  "class_weight": "balanced",
+  "estimator_class_weight": "balanced",
+  "seed": 42,
+  "selection_rule": "validation macro-F1, then balanced accuracy, then accuracy; earlier trial wins exact ties",
+  "trained_on_splits": [
+    "train"
+  ],
+  "selected_using_splits": [
+    "validation"
+  ],
+  "test_images_opened_by_training": 0,
+  "images_csv_sha256": "eb79ea60a1127374bab1b5df373646cd1ef18375a95587a8baa1d4dcafab420b",
+  "counts": {
+    "train": {
+      "inside": {
+        "images": 54,
+        "groups": 8
+      },
+      "outside": {
+        "images": 40,
+        "groups": 7
+      }
+    },
+    "validation": {
+      "inside": {
+        "images": 17,
+        "groups": 2
+      },
+      "outside": {
+        "images": 14,
+        "groups": 2
+      }
+    },
+    "test": {
+      "inside": {
+        "images": 19,
+        "groups": 2
+      },
+      "outside": {
+        "images": 10,
+        "groups": 2
+      }
+    }
+  },
+  "versions": {
+    "python": "3.13.7",
+    "numpy": "2.5.4",
+    "scikit-learn": "1.9.1",
+    "scikit-image": "0.26.0",
+    "Pillow": "12.3.0",
+    "joblib": "1.6.0"
+  },
+  "development_run": true,
+  "best_trial": {
+    "trial": 14,
+    "feature_set": "hog",
+    "classifier": "svm",
+    "params": "{\"C\": 0.1, \"kernel\": \"linear\"}",
+    "n_features": 1764,
+    "train_accuracy": 1.0,
+    "validation_accuracy": 0.709677,
+    "validation_balanced_accuracy": 0.697479,
+    "validation_macro_f1": 0.698378,
+    "fit_seconds": 0.0054
+  },
+  "train_metrics": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "per_class": {
+      "outside": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 40
+      },
+      "inside": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 54
+      }
+    },
+    "confusion_matrix": [
+      [
+        40,
+        0
+      ],
+      [
+        0,
+        54
+      ]
+    ],
+    "confusion_matrix_labels": [
+      "outside(0)",
+      "inside(1)"
+    ]
+  },
+  "validation_metrics": {
+    "accuracy": 0.7096774193548387,
+    "balanced_accuracy": 0.6974789915966386,
+    "macro_f1": 0.6983783783783784,
+    "per_class": {
+      "outside": {
+        "precision": 0.7272727272727273,
+        "recall": 0.5714285714285714,
+        "f1": 0.64,
+        "support": 14
+      },
+      "inside": {
+        "precision": 0.7,
+        "recall": 0.8235294117647058,
+        "f1": 0.7567567567567568,
+        "support": 17
+      }
+    },
+    "confusion_matrix": [
+      [
+        8,
+        6
+      ],
+      [
+        3,
+        14
+      ]
+    ],
+    "confusion_matrix_labels": [
+      "outside(0)",
+      "inside(1)"
+    ]
+  },
+  "top_trials": [
+    {
+      "trial": 14,
+      "feature_set": "hog",
+      "classifier": "svm",
+      "params": "{\"C\": 0.1, \"kernel\": \"linear\"}",
+      "n_features": 1764,
+      "train_accuracy": 1.0,
+      "validation_accuracy": 0.709677,
+      "validation_balanced_accuracy": 0.697479,
+      "validation_macro_f1": 0.698378,
+      "fit_seconds": 0.0054
+    },
+    {
+      "trial": 15,
+      "feature_set": "hog",
+      "classifier": "svm",
+      "params": "{\"C\": 1, \"kernel\": \"linear\"}",
+      "n_features": 1764,
+      "train_accuracy": 1.0,
+      "validation_accuracy": 0.709677,
+      "validation_balanced_accuracy": 0.697479,
+      "validation_macro_f1": 0.698378,
+      "fit_seconds": 0.0055
+    },
+    {
+      "trial": 16,
+      "feature_set": "hog",
+      "classifier": "svm",
+      "params": "{\"C\": 10, \"kernel\": \"linear\"}",
+      "n_features": 1764,
+      "train_accuracy": 1.0,
+      "validation_accuracy": 0.709677,
+      "validation_balanced_accuracy": 0.697479,
+      "validation_macro_f1": 0.698378,
+      "fit_seconds": 0.0054
+    },
+    {
+      "trial": 17,
+      "feature_set": "hog",
+      "classifier": "random_forest",
+      "params": "{\"max_depth\": null, \"min_samples_leaf\": 1, \"n_estimators\": 300}",
+      "n_features": 1764,
+      "train_accuracy": 1.0,
+      "validation_accuracy": 0.677419,
+      "validation_balanced_accuracy": 0.655462,
+      "validation_macro_f1": 0.647727,
+      "fit_seconds": 0.4761
+    },
+    {
+      "trial": 19,
+      "feature_set": "hog",
+      "classifier": "random_forest",
+      "params": "{\"max_depth\": 20, \"min_samples_leaf\": 1, \"n_estimators\": 300}",
+      "n_features": 1764,
+      "train_accuracy": 1.0,
+      "validation_accuracy": 0.677419,
+      "validation_balanced_accuracy": 0.655462,
+      "validation_macro_f1": 0.647727,
+      "fit_seconds": 0.4568
+    }
+  ],
+  "trial_count": 40,
+  "warning": "Validation was used for selection; report final generalisation only from the untouched test split."
+}

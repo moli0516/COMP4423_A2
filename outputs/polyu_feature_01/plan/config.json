@@ -1,0 +1,10 @@
+{
+  "dataset_dir": "/Users/moli/Documents/coding/COMP4423_A2/assignment_2/dataset_dev",
+  "reference_model": "/Users/moli/Documents/coding/COMP4423_A2/assignment_2/outputs/polyu_lr_01/best/pipeline.joblib",
+  "reference_metadata": "/Users/moli/Documents/coding/COMP4423_A2/assignment_2/outputs/polyu_lr_01/best/pipeline_metadata.json",
+  "reference_result": "/Users/moli/Documents/coding/COMP4423_A2/assignment_2/outputs/polyu_lr_01/best_result.json",
+  "plan_dir": "/Users/moli/Documents/coding/COMP4423_A2/assignment_2/outputs/polyu_feature_01/plan",
+  "experiment_id": "POLYU-FEATURE-01",
+  "allow_unverified": true,
+  "camera_diagnostic_status": "pending"
+}

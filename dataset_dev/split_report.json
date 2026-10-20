@@ -1,0 +1,109 @@
+{
+  "seed": 42,
+  "trials": 500,
+  "target_group_share": {
+    "train": 0.6,
+    "validation": 0.2,
+    "test": 0.2
+  },
+  "group_counts_per_class": {
+    "inside": {
+      "train": 8,
+      "validation": 2,
+      "test": 2
+    },
+    "outside": {
+      "train": 7,
+      "validation": 2,
+      "test": 2
+    }
+  },
+  "image_balance_score": 0.109722,
+  "summary": {
+    "inside": {
+      "train": {
+        "images": 54,
+        "groups": 8
+      },
+      "validation": {
+        "images": 17,
+        "groups": 2
+      },
+      "test": {
+        "images": 19,
+        "groups": 2
+      }
+    },
+    "outside": {
+      "train": {
+        "images": 40,
+        "groups": 7
+      },
+      "validation": {
+        "images": 14,
+        "groups": 2
+      },
+      "test": {
+        "images": 10,
+        "groups": 2
+      }
+    }
+  },
+  "groups": {
+    "train": [
+      "in_002",
+      "in_004",
+      "in_006",
+      "in_007",
+      "in_010",
+      "in_011",
+      "in_012",
+      "in_013",
+      "out_002",
+      "out_003",
+      "out_004",
+      "out_006",
+      "out_008",
+      "out_009",
+      "out_010"
+    ],
+    "validation": [
+      "in_003",
+      "in_005",
+      "out_005",
+      "out_011"
+    ],
+    "test": [
+      "in_008",
+      "in_009",
+      "out_001",
+      "out_007"
+    ]
+  },
+  "warnings": [
+    "Group in_002 is not boundary-verified; this split must not be treated as final.",
+    "Group in_003 is not boundary-verified; this split must not be treated as final.",
+    "Group in_004 is not boundary-verified; this split must not be treated as final.",
+    "Group in_005 is not boundary-verified; this split must not be treated as final.",
+    "Group in_006 is not boundary-verified; this split must not be treated as final.",
+    "Group in_007 is not boundary-verified; this split must not be treated as final.",
+    "Group in_008 is not boundary-verified; this split must not be treated as final.",
+    "Group in_009 is not boundary-verified; this split must not be treated as final.",
+    "Group in_010 is not boundary-verified; this split must not be treated as final.",
+    "Group in_011 is not boundary-verified; this split must not be treated as final.",
+    "Group in_012 is not boundary-verified; this split must not be treated as final.",
+    "Group in_013 is not boundary-verified; this split must not be treated as final.",
+    "Group out_001 is not boundary-verified; this split must not be treated as final.",
+    "Group out_002 is not boundary-verified; this split must not be treated as final.",
+    "Group out_003 is not boundary-verified; this split must not be treated as final.",
+    "Group out_004 is not boundary-verified; this split must not be treated as final.",
+    "Group out_005 is not boundary-verified; this split must not be treated as final.",
+    "Group out_006 is not boundary-verified; this split must not be treated as final.",
+    "Group out_007 is not boundary-verified; this split must not be treated as final.",
+    "Group out_008 is not boundary-verified; this split must not be treated as final.",
+    "Group out_009 is not boundary-verified; this split must not be treated as final.",
+    "Group out_010 is not boundary-verified; this split must not be treated as final.",
+    "Group out_011 is not boundary-verified; this split must not be treated as final."
+  ],
+  "note": "images.csv is the authoritative split. This report documents how it was generated."
+}

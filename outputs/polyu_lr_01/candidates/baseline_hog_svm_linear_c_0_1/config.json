@@ -1,0 +1,6 @@
+{
+  "id": "baseline_hog_svm_linear_c_0_1",
+  "family": "svm",
+  "penalty": null,
+  "C": 0.1
+}

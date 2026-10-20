@@ -1,0 +1,104 @@
+{
+  "candidate": {
+    "id": "hog_lr_l2_c_0_01",
+    "family": "logistic_regression",
+    "penalty": "l2",
+    "C": 0.01
+  },
+  "train_metrics": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "per_class": {
+      "outside": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 40
+      },
+      "inside": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 54
+      }
+    },
+    "confusion_matrix": [
+      [
+        40,
+        0
+      ],
+      [
+        0,
+        54
+      ]
+    ],
+    "confusion_matrix_labels": [
+      "outside(0)",
+      "inside(1)"
+    ]
+  },
+  "validation_metrics": {
+    "accuracy": 0.7419354838709677,
+    "balanced_accuracy": 0.7331932773109244,
+    "macro_f1": 0.7350427350427351,
+    "per_class": {
+      "outside": {
+        "precision": 0.75,
+        "recall": 0.6428571428571429,
+        "f1": 0.6923076923076923,
+        "support": 14
+      },
+      "inside": {
+        "precision": 0.7368421052631579,
+        "recall": 0.8235294117647058,
+        "f1": 0.7777777777777778,
+        "support": 17
+      }
+    },
+    "confusion_matrix": [
+      [
+        9,
+        5
+      ],
+      [
+        3,
+        14
+      ]
+    ],
+    "confusion_matrix_labels": [
+      "outside(0)",
+      "inside(1)"
+    ]
+  },
+  "diagnostics": {
+    "warnings": [],
+    "convergence_warning": false,
+    "n_iter": [
+      5
+    ],
+    "iteration_limit_hit": false,
+    "exact_nonzero_count": 1764,
+    "effective_nonzero_count": 1764,
+    "effective_zero_threshold": 1e-08,
+    "n_features": 1764,
+    "fit_seconds": 0.017920332999892707,
+    "eligible": true,
+    "estimator_params": {
+      "C": 0.01,
+      "class_weight": "balanced",
+      "dual": false,
+      "fit_intercept": true,
+      "intercept_scaling": 1,
+      "l1_ratio": 0.0,
+      "max_iter": 10000,
+      "n_jobs": null,
+      "penalty": "deprecated",
+      "random_state": 42,
+      "solver": "liblinear",
+      "tol": 0.0001,
+      "verbose": 0,
+      "warm_start": false
+    }
+  }
+}

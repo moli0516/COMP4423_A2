@@ -1,0 +1,30 @@
+{
+  "warnings": [],
+  "convergence_warning": false,
+  "n_iter": [
+    7
+  ],
+  "iteration_limit_hit": false,
+  "exact_nonzero_count": 1764,
+  "effective_nonzero_count": 1764,
+  "effective_zero_threshold": 1e-08,
+  "n_features": 1764,
+  "fit_seconds": 0.03453937499944004,
+  "eligible": true,
+  "estimator_params": {
+    "C": 0.1,
+    "class_weight": "balanced",
+    "dual": false,
+    "fit_intercept": true,
+    "intercept_scaling": 1,
+    "l1_ratio": 0.0,
+    "max_iter": 10000,
+    "n_jobs": null,
+    "penalty": "deprecated",
+    "random_state": 42,
+    "solver": "liblinear",
+    "tol": 0.0001,
+    "verbose": 0,
+    "warm_start": false
+  }
+}

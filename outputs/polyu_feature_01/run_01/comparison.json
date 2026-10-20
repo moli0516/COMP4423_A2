@@ -1,0 +1,442 @@
+[
+  {
+    "variant": {
+      "variant_id": "F0",
+      "description": "HOG baseline",
+      "use_color": false,
+      "use_lbp": false,
+      "color_grid": 1,
+      "preprocessing_config": {
+        "image_size": 256,
+        "resize_mode": "squash",
+        "pad_value": 0
+      },
+      "feature_config": {
+        "use_color": false,
+        "color_bins": 16,
+        "color_grid": 1,
+        "use_hog": true,
+        "hog_orientations": 9,
+        "hog_pixels_per_cell": 32,
+        "hog_cells_per_block": 2,
+        "use_lbp": false,
+        "lbp_points": 8,
+        "lbp_radius": 1
+      },
+      "feature_dimension": 1764,
+      "estimator_parameters": {
+        "C": 0.01,
+        "class_weight": "balanced",
+        "dual": false,
+        "fit_intercept": true,
+        "intercept_scaling": 1,
+        "l1_ratio": 0.0,
+        "max_iter": 10000,
+        "n_jobs": null,
+        "penalty": "deprecated",
+        "random_state": 42,
+        "solver": "liblinear",
+        "tol": 0.0001,
+        "verbose": 0,
+        "warm_start": false
+      },
+      "pipeline_steps": [
+        "features",
+        "scale",
+        "classifier"
+      ],
+      "fitted": false
+    },
+    "metrics": {
+      "accuracy": 0.7419354838709677,
+      "balanced_accuracy": 0.7331932773109244,
+      "macro_f1": 0.7350427350427351,
+      "per_class": {
+        "outside": {
+          "precision": 0.75,
+          "recall": 0.6428571428571429,
+          "f1": 0.6923076923076923,
+          "support": 14
+        },
+        "inside": {
+          "precision": 0.7368421052631579,
+          "recall": 0.8235294117647058,
+          "f1": 0.7777777777777778,
+          "support": 17
+        }
+      },
+      "confusion_matrix": [
+        [
+          9,
+          5
+        ],
+        [
+          3,
+          14
+        ]
+      ],
+      "confusion_matrix_labels": [
+        "outside(0)",
+        "inside(1)"
+      ]
+    },
+    "diagnostics": {
+      "eligible": true,
+      "convergence_warning": false,
+      "iteration_limit_hit": false,
+      "n_iter": [
+        5
+      ],
+      "max_iter": 10000,
+      "fit_and_predict_seconds": 7.046419541999057,
+      "warnings": [],
+      "exact_nonzero_count": 1764,
+      "estimator_params": {
+        "C": 0.01,
+        "class_weight": "balanced",
+        "dual": false,
+        "fit_intercept": true,
+        "intercept_scaling": 1,
+        "l1_ratio": 0.0,
+        "max_iter": 10000,
+        "n_jobs": null,
+        "penalty": "deprecated",
+        "random_state": 42,
+        "solver": "liblinear",
+        "tol": 0.0001,
+        "verbose": 0,
+        "warm_start": false
+      }
+    }
+  },
+  {
+    "variant": {
+      "variant_id": "F1",
+      "description": "HOG + global HSV",
+      "use_color": true,
+      "use_lbp": false,
+      "color_grid": 1,
+      "preprocessing_config": {
+        "image_size": 256,
+        "resize_mode": "squash",
+        "pad_value": 0
+      },
+      "feature_config": {
+        "use_color": true,
+        "color_bins": 16,
+        "color_grid": 1,
+        "use_hog": true,
+        "hog_orientations": 9,
+        "hog_pixels_per_cell": 32,
+        "hog_cells_per_block": 2,
+        "use_lbp": false,
+        "lbp_points": 8,
+        "lbp_radius": 1
+      },
+      "feature_dimension": 1812,
+      "estimator_parameters": {
+        "C": 0.01,
+        "class_weight": "balanced",
+        "dual": false,
+        "fit_intercept": true,
+        "intercept_scaling": 1,
+        "l1_ratio": 0.0,
+        "max_iter": 10000,
+        "n_jobs": null,
+        "penalty": "deprecated",
+        "random_state": 42,
+        "solver": "liblinear",
+        "tol": 0.0001,
+        "verbose": 0,
+        "warm_start": false
+      },
+      "pipeline_steps": [
+        "features",
+        "scale",
+        "classifier"
+      ],
+      "fitted": false
+    },
+    "metrics": {
+      "accuracy": 0.7419354838709677,
+      "balanced_accuracy": 0.7331932773109244,
+      "macro_f1": 0.7350427350427351,
+      "per_class": {
+        "outside": {
+          "precision": 0.75,
+          "recall": 0.6428571428571429,
+          "f1": 0.6923076923076923,
+          "support": 14
+        },
+        "inside": {
+          "precision": 0.7368421052631579,
+          "recall": 0.8235294117647058,
+          "f1": 0.7777777777777778,
+          "support": 17
+        }
+      },
+      "confusion_matrix": [
+        [
+          9,
+          5
+        ],
+        [
+          3,
+          14
+        ]
+      ],
+      "confusion_matrix_labels": [
+        "outside(0)",
+        "inside(1)"
+      ]
+    },
+    "diagnostics": {
+      "eligible": true,
+      "convergence_warning": false,
+      "iteration_limit_hit": false,
+      "n_iter": [
+        5
+      ],
+      "max_iter": 10000,
+      "fit_and_predict_seconds": 8.776914707999822,
+      "warnings": [],
+      "exact_nonzero_count": 1812,
+      "estimator_params": {
+        "C": 0.01,
+        "class_weight": "balanced",
+        "dual": false,
+        "fit_intercept": true,
+        "intercept_scaling": 1,
+        "l1_ratio": 0.0,
+        "max_iter": 10000,
+        "n_jobs": null,
+        "penalty": "deprecated",
+        "random_state": 42,
+        "solver": "liblinear",
+        "tol": 0.0001,
+        "verbose": 0,
+        "warm_start": false
+      }
+    }
+  },
+  {
+    "variant": {
+      "variant_id": "F2",
+      "description": "HOG + 2x2 spatial HSV",
+      "use_color": true,
+      "use_lbp": false,
+      "color_grid": 2,
+      "preprocessing_config": {
+        "image_size": 256,
+        "resize_mode": "squash",
+        "pad_value": 0
+      },
+      "feature_config": {
+        "use_color": true,
+        "color_bins": 16,
+        "color_grid": 2,
+        "use_hog": true,
+        "hog_orientations": 9,
+        "hog_pixels_per_cell": 32,
+        "hog_cells_per_block": 2,
+        "use_lbp": false,
+        "lbp_points": 8,
+        "lbp_radius": 1
+      },
+      "feature_dimension": 1956,
+      "estimator_parameters": {
+        "C": 0.01,
+        "class_weight": "balanced",
+        "dual": false,
+        "fit_intercept": true,
+        "intercept_scaling": 1,
+        "l1_ratio": 0.0,
+        "max_iter": 10000,
+        "n_jobs": null,
+        "penalty": "deprecated",
+        "random_state": 42,
+        "solver": "liblinear",
+        "tol": 0.0001,
+        "verbose": 0,
+        "warm_start": false
+      },
+      "pipeline_steps": [
+        "features",
+        "scale",
+        "classifier"
+      ],
+      "fitted": false
+    },
+    "metrics": {
+      "accuracy": 0.7741935483870968,
+      "balanced_accuracy": 0.76890756302521,
+      "macro_f1": 0.7703703703703704,
+      "per_class": {
+        "outside": {
+          "precision": 0.7692307692307693,
+          "recall": 0.7142857142857143,
+          "f1": 0.7407407407407407,
+          "support": 14
+        },
+        "inside": {
+          "precision": 0.7777777777777778,
+          "recall": 0.8235294117647058,
+          "f1": 0.8,
+          "support": 17
+        }
+      },
+      "confusion_matrix": [
+        [
+          10,
+          4
+        ],
+        [
+          3,
+          14
+        ]
+      ],
+      "confusion_matrix_labels": [
+        "outside(0)",
+        "inside(1)"
+      ]
+    },
+    "diagnostics": {
+      "eligible": true,
+      "convergence_warning": false,
+      "iteration_limit_hit": false,
+      "n_iter": [
+        5
+      ],
+      "max_iter": 10000,
+      "fit_and_predict_seconds": 8.823659749999933,
+      "warnings": [],
+      "exact_nonzero_count": 1956,
+      "estimator_params": {
+        "C": 0.01,
+        "class_weight": "balanced",
+        "dual": false,
+        "fit_intercept": true,
+        "intercept_scaling": 1,
+        "l1_ratio": 0.0,
+        "max_iter": 10000,
+        "n_jobs": null,
+        "penalty": "deprecated",
+        "random_state": 42,
+        "solver": "liblinear",
+        "tol": 0.0001,
+        "verbose": 0,
+        "warm_start": false
+      }
+    }
+  },
+  {
+    "variant": {
+      "variant_id": "F3",
+      "description": "HOG + uniform LBP",
+      "use_color": false,
+      "use_lbp": true,
+      "color_grid": 1,
+      "preprocessing_config": {
+        "image_size": 256,
+        "resize_mode": "squash",
+        "pad_value": 0
+      },
+      "feature_config": {
+        "use_color": false,
+        "color_bins": 16,
+        "color_grid": 1,
+        "use_hog": true,
+        "hog_orientations": 9,
+        "hog_pixels_per_cell": 32,
+        "hog_cells_per_block": 2,
+        "use_lbp": true,
+        "lbp_points": 8,
+        "lbp_radius": 1
+      },
+      "feature_dimension": 1774,
+      "estimator_parameters": {
+        "C": 0.01,
+        "class_weight": "balanced",
+        "dual": false,
+        "fit_intercept": true,
+        "intercept_scaling": 1,
+        "l1_ratio": 0.0,
+        "max_iter": 10000,
+        "n_jobs": null,
+        "penalty": "deprecated",
+        "random_state": 42,
+        "solver": "liblinear",
+        "tol": 0.0001,
+        "verbose": 0,
+        "warm_start": false
+      },
+      "pipeline_steps": [
+        "features",
+        "scale",
+        "classifier"
+      ],
+      "fitted": false
+    },
+    "metrics": {
+      "accuracy": 0.7419354838709677,
+      "balanced_accuracy": 0.7331932773109244,
+      "macro_f1": 0.7350427350427351,
+      "per_class": {
+        "outside": {
+          "precision": 0.75,
+          "recall": 0.6428571428571429,
+          "f1": 0.6923076923076923,
+          "support": 14
+        },
+        "inside": {
+          "precision": 0.7368421052631579,
+          "recall": 0.8235294117647058,
+          "f1": 0.7777777777777778,
+          "support": 17
+        }
+      },
+      "confusion_matrix": [
+        [
+          9,
+          5
+        ],
+        [
+          3,
+          14
+        ]
+      ],
+      "confusion_matrix_labels": [
+        "outside(0)",
+        "inside(1)"
+      ]
+    },
+    "diagnostics": {
+      "eligible": true,
+      "convergence_warning": false,
+      "iteration_limit_hit": false,
+      "n_iter": [
+        5
+      ],
+      "max_iter": 10000,
+      "fit_and_predict_seconds": 7.900089333999858,
+      "warnings": [],
+      "exact_nonzero_count": 1774,
+      "estimator_params": {
+        "C": 0.01,
+        "class_weight": "balanced",
+        "dual": false,
+        "fit_intercept": true,
+        "intercept_scaling": 1,
+        "l1_ratio": 0.0,
+        "max_iter": 10000,
+        "n_jobs": null,
+        "penalty": "deprecated",
+        "random_state": 42,
+        "solver": "liblinear",
+        "tol": 0.0001,
+        "verbose": 0,
+        "warm_start": false
+      }
+    }
+  }
+]

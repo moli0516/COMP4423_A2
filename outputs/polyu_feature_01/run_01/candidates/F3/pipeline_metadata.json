@@ -1,0 +1,59 @@
+{
+  "experiment_id": "POLYU-FEATURE-01",
+  "variant": {
+    "variant_id": "F3",
+    "description": "HOG + uniform LBP",
+    "use_color": false,
+    "use_lbp": true,
+    "color_grid": 1
+  },
+  "class_labels": {
+    "0": "outside",
+    "1": "inside"
+  },
+  "feature_config": {
+    "use_color": false,
+    "color_bins": 16,
+    "color_grid": 1,
+    "use_hog": true,
+    "hog_orientations": 9,
+    "hog_pixels_per_cell": 32,
+    "hog_cells_per_block": 2,
+    "use_lbp": true,
+    "lbp_points": 8,
+    "lbp_radius": 1
+  },
+  "preprocessing_config": {
+    "image_size": 256,
+    "resize_mode": "squash",
+    "pad_value": 0
+  },
+  "feature_dimension": 1774,
+  "plan_sha256": "a10f35fede2566ba3a0e5ae2f863e01de65fd218ed8b1b5b6bba70b2677ef0b3",
+  "images_csv_sha256": "eb79ea60a1127374bab1b5df373646cd1ef18375a95587a8baa1d4dcafab420b",
+  "trained_on_splits": [
+    "train"
+  ],
+  "selected_using_splits": [
+    "validation"
+  ],
+  "test_images_opened_by_training": 0,
+  "development_run": true,
+  "eligible": true,
+  "estimator_params": {
+    "C": 0.01,
+    "class_weight": "balanced",
+    "dual": false,
+    "fit_intercept": true,
+    "intercept_scaling": 1,
+    "l1_ratio": 0.0,
+    "max_iter": 10000,
+    "n_jobs": null,
+    "penalty": "deprecated",
+    "random_state": 42,
+    "solver": "liblinear",
+    "tol": 0.0001,
+    "verbose": 0,
+    "warm_start": false
+  }
+}

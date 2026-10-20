@@ -1,0 +1,42 @@
+{
+  "experiment_id": "POLYU-FEATURE-01",
+  "stage": "runner_execution",
+  "status": "completed",
+  "training_implemented": true,
+  "planned_fits": 4,
+  "completed_fits": 4,
+  "plan_dir": "/Users/moli/Documents/coding/COMP4423_A2/assignment_2/outputs/polyu_feature_01/plan",
+  "plan_sha256": "a10f35fede2566ba3a0e5ae2f863e01de65fd218ed8b1b5b6bba70b2677ef0b3",
+  "input_hashes": {
+    "images_csv": "eb79ea60a1127374bab1b5df373646cd1ef18375a95587a8baa1d4dcafab420b",
+    "locations_csv": "b382e8314ae7ce6c9afba296264c50afe173a3bdccc258eccadc259cb338dce5",
+    "reference_model": "a2a2a4a78c819cea5d58e17fc42c478aaf5a9821db1a96a1a0c9ea564177bcb4",
+    "reference_metadata": "08a288ccb653731f20106bc188fe867c75043faa2f3021264bdb4cbf7a663094",
+    "reference_result": "4906918432f06369f562853f24e350ef171b85c4b78e31476ba5237e48e61e6c"
+  },
+  "camera_gate": {
+    "config_status": "pending",
+    "cli_confirmation": true,
+    "open": true
+  },
+  "selection_rule": [
+    "macro_f1",
+    "balanced_accuracy",
+    "accuracy",
+    "earlier_variant_on_exact_tie"
+  ],
+  "test_images_hashed_or_decoded": 0,
+  "evaluation_status": "development model selection, not independent final evaluation",
+  "source_sha256": {
+    "__init__.py": "f4f413ef132388def30e18eb7c2ab5c278d31b3541acfe6c011a462a39294133",
+    "experiment_plan_store.py": "d33ba87ad42fd37286d432a1513e2eba2a745fff48a5e55a240e5e3fb9f1b94c",
+    "feature_experiment_config.py": "a7f068a9ab7738565d03c886b8a35465c1fb96910b803f9921b643a527889967",
+    "feature_experiment_planner.py": "8d6d390f37cb8d27f05cfe08e448d565b7f2dc5abe2340f58b8916ad8446d86a",
+    "feature_experiment_runner.py": "502012d98d334f7284d15baec6645477663a4c9942347c3e623c3318d2114cc3",
+    "feature_pipeline_factory.py": "e54ca4be51f0709d1a6ab6114d5c77c3772a69238c9c1237e1a02a3609f61371",
+    "feature_variant.py": "5fa94a9dcb6388892cdeb8e9310c7bbe82f06ed269524ccac2f652098a84bc5b"
+  },
+  "git_revision": null,
+  "best_variant": "F2",
+  "numerical_review_required": false
+}

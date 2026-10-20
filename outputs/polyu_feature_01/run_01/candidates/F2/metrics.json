@@ -1,0 +1,33 @@
+{
+  "accuracy": 0.7741935483870968,
+  "balanced_accuracy": 0.76890756302521,
+  "macro_f1": 0.7703703703703704,
+  "per_class": {
+    "outside": {
+      "precision": 0.7692307692307693,
+      "recall": 0.7142857142857143,
+      "f1": 0.7407407407407407,
+      "support": 14
+    },
+    "inside": {
+      "precision": 0.7777777777777778,
+      "recall": 0.8235294117647058,
+      "f1": 0.8,
+      "support": 17
+    }
+  },
+  "confusion_matrix": [
+    [
+      10,
+      4
+    ],
+    [
+      3,
+      14
+    ]
+  ],
+  "confusion_matrix_labels": [
+    "outside(0)",
+    "inside(1)"
+  ]
+}

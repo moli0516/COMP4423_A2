@@ -1,0 +1,98 @@
+{
+  "protocol": "POLYU-LR-01 fixed grouped holdout, six LR candidates plus a freshly fitted SVM baseline",
+  "config": {
+    "dataset_dir": "/Users/moli/Documents/coding/COMP4423_A2/assignment_2/dataset_dev",
+    "reference_metadata": "/Users/moli/Documents/coding/COMP4423_A2/assignment_2/models_runs/pipeline_metadata.json",
+    "reference_report": "/Users/moli/Documents/coding/COMP4423_A2/assignment_2/results_runs/training_report.json",
+    "output_dir": "/Users/moli/Documents/coding/COMP4423_A2/assignment_2/outputs/polyu_lr_01",
+    "c_values": [
+      0.01,
+      0.1,
+      1.0
+    ],
+    "solver": "liblinear",
+    "max_iter": 10000,
+    "tol": 0.0001,
+    "seed": 42,
+    "allow_unverified": true,
+    "effective_zero_threshold": 1e-08
+  },
+  "images_csv_sha256": "eb79ea60a1127374bab1b5df373646cd1ef18375a95587a8baa1d4dcafab420b",
+  "locations_csv_sha256": "b382e8314ae7ce6c9afba296264c50afe173a3bdccc258eccadc259cb338dce5",
+  "reference_metadata_sha256": "e2b2aaf73d96c81da46db3cb282a4e297f43f31b4823cc9e6e26e4a7a6b48250",
+  "reference_report_sha256": "28c4e5f0ae22756e511bd4dc265c8690783cd2abf846028e48c64a15382d208d",
+  "candidates": [
+    {
+      "id": "baseline_hog_svm_linear_c_0_1",
+      "family": "svm",
+      "penalty": null,
+      "C": 0.1
+    },
+    {
+      "id": "hog_lr_l2_c_0_01",
+      "family": "logistic_regression",
+      "penalty": "l2",
+      "C": 0.01
+    },
+    {
+      "id": "hog_lr_l2_c_0_1",
+      "family": "logistic_regression",
+      "penalty": "l2",
+      "C": 0.1
+    },
+    {
+      "id": "hog_lr_l2_c_1_0",
+      "family": "logistic_regression",
+      "penalty": "l2",
+      "C": 1.0
+    },
+    {
+      "id": "hog_lr_l1_c_0_01",
+      "family": "logistic_regression",
+      "penalty": "l1",
+      "C": 0.01
+    },
+    {
+      "id": "hog_lr_l1_c_0_1",
+      "family": "logistic_regression",
+      "penalty": "l1",
+      "C": 0.1
+    },
+    {
+      "id": "hog_lr_l1_c_1_0",
+      "family": "logistic_regression",
+      "penalty": "l1",
+      "C": 1.0
+    }
+  ],
+  "selection_rule": "eligible macro-F1, balanced accuracy, accuracy; earlier candidate wins exact ties",
+  "eligibility_rule": "finite outputs; no ConvergenceWarning; iterations strictly below max_iter when limited",
+  "counts": {
+    "train": {
+      "images": 94,
+      "groups": 15
+    },
+    "validation": {
+      "images": 31,
+      "groups": 4
+    },
+    "test": {
+      "images": 29,
+      "groups": 4
+    }
+  },
+  "test_images_opened": 0,
+  "evaluation_status": "development holdout used for model selection; not independent final evaluation",
+  "status": "completed",
+  "source_sha256": {
+    "__init__.py": "8c2d075e65f70a85d6e6aabeee3953fbab96070a53723780a2f15e580e0b43df",
+    "polyu_holdout_experiment.py": "ef8847d240c9a83f05b18f97b590e7487b8ddbe0a6b441c49fef49a4b5a888ca",
+    "polyu_lr_config.py": "9ba013ff817db2782488521cd021bd81cd38b80a4f2acebb90cbb0c10918c4a8",
+    "polyu_pipeline_factory.py": "76fdff6ddef89c62840053c818763a01760c10b22eb42574c07266b4ce78b795"
+  },
+  "git_revision": null,
+  "current_candidate": "hog_lr_l1_c_1_0",
+  "completed_fits": 7,
+  "best_candidate": "hog_lr_l2_c_0_01",
+  "numerical_review_required": false
+}

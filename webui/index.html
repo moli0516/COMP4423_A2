@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Predict - PolyU Campus Classifier</title><link rel="stylesheet" href="/static/style.css"></head>
+<body data-page="predict">
+<header>
+  <h1>PolyU Campus Classifier</h1>
+  <nav><a href="/" class="current">Predict</a><a href="/config">Config</a></nav>
+  <span id="modelBadge">loading model...</span>
+</header>
+<main>
+  <div class="tabs">
+    <button id="tabUpload" class="active">Upload images</button>
+    <button id="tabCamera">Live camera</button>
+  </div>
+
+  <section id="paneUpload" class="card">
+    <h2>Upload images</h2>
+    <div id="dropzone" class="dropzone">
+      <p>Drop one or more photos here, or choose files. Each photo is classified separately.</p>
+      <input id="fileInput" type="file" accept="image/*" multiple>
+    </div>
+    <div id="batchControls" class="controls hidden">
+      <span id="batchSummary" class="muted"></span>
+      <button id="exportButton" class="secondary" disabled>Export CSV</button>
+      <button id="clearButton" class="secondary">Clear all</button>
+    </div>
+    <table id="batchTable" class="hidden">
+      <thead><tr><th>Photo</th><th>File</th><th>Prediction</th><th>Details</th></tr></thead>
+      <tbody id="batchBody"></tbody>
+    </table>
+  </section>
+
+  <section id="paneCamera" class="card hidden">
+    <h2>Live camera</h2>
+    <div class="controls">
+      <button id="camStart" class="primary">Start camera</button>
+      <button id="camStop" class="secondary" disabled>Stop</button>
+      <label>Every <select id="camInterval"><option value="500">0.5 s</option><option value="1000" selected>1 s</option><option value="2000">2 s</option></select></label>
+    </div>
+    <div class="layout">
+      <video id="video" playsinline muted></video>
+      <div>
+        <div id="cameraResult" class="result">Press "Start camera". The browser will ask for permission.</div>
+        <div id="cameraStable" class="muted" style="margin-top:8px"></div>
+        <div id="history" class="history" aria-label="Last predictions"></div>
+      </div>
+    </div>
+    <canvas id="grab" class="hidden"></canvas>
+    <p class="muted">Frames are sent only to this computer (127.0.0.1). The shown result is the latest frame; the "stable" line is a majority vote over the last 5 frames.</p>
+  </section>
+</main>
+<script src="/static/app.js"></script>
+</body></html>

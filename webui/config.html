@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Config - PolyU Campus Classifier</title><link rel="stylesheet" href="/static/style.css"></head>
+<body data-page="config">
+<header>
+  <h1>PolyU Campus Classifier</h1>
+  <nav><a href="/">Predict</a><a href="/config" class="current">Config</a></nav>
+  <span id="modelBadge">loading model...</span>
+</header>
+<main>
+  <section class="card">
+    <h2>Model</h2>
+    <p class="muted">Pipelines found under the outputs folder. Selecting one applies to both upload and camera prediction.</p>
+    <div id="modelList">Loading...</div>
+    <div id="modelMessage" class="muted"></div>
+  </section>
+
+  <section class="card">
+    <h2>Active pipeline</h2>
+    <div id="pipelineInfo">Loading...</div>
+  </section>
+
+  <section class="card">
+    <h2>Dataset</h2>
+    <div id="datasetInfo">Loading...</div>
+  </section>
+</main>
+<script src="/static/app.js"></script>
+</body></html>

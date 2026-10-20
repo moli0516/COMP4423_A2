@@ -1,0 +1,48 @@
+# ---- Python / environment ----
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.ipynb_checkpoints/
+
+# ---- Editors / OS ----
+.DS_Store
+.idea/
+.vscode/
+*.swp
+Thumbs.db
+
+# ---- Scratch work and diagnostics (never part of the dataset) ----
+temp/
+tmp/
+outputs/diagnostics/
+outputs/.app_state.json
+predictions*.csv
+
+# ---- Dataset photos ----
+# Photos can be large and may contain private places. Keep the CSV records in git,
+# keep the images out (submit them in the ZIP or through DATASET_LINK.txt instead).
+dataset_dev/images/
+dataset_dev/**/*.jpg
+dataset_dev/**/*.jpeg
+dataset_dev/**/*.png
+dataset_dev/**/*.webp
+dataset_dev/**/*.heic
+# Un-ignore the records that describe the dataset
+!dataset_dev/images.csv
+!dataset_dev/locations.csv
+!dataset_dev/split_report.json
+
+# ---- Trained models ----
+# Large binaries: remove the next line if you want the final model tracked.
+*.joblib
+# Small text results are fine to track (metrics, reports, validation tables).
+!outputs/**/*.json
+!outputs/**/*.csv
