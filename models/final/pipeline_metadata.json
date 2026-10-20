@@ -1,0 +1,85 @@
+{
+  "model_file": "pipeline.joblib",
+  "class_labels": {
+    "0": "outside",
+    "1": "inside"
+  },
+  "feature_set": "color_hog_lbp",
+  "feature_config": {
+    "use_color": true,
+    "color_bins": 16,
+    "color_grid": 1,
+    "use_hog": true,
+    "hog_orientations": 9,
+    "hog_pixels_per_cell": 32,
+    "hog_cells_per_block": 2,
+    "use_lbp": true,
+    "lbp_points": 8,
+    "lbp_radius": 1
+  },
+  "preprocessing_config": {
+    "image_size": 256,
+    "resize_mode": "squash",
+    "pad_value": 0
+  },
+  "classifier": "logistic_regression",
+  "classifier_params": {
+    "penalty": "l1",
+    "C": 0.1,
+    "solver": "liblinear",
+    "max_iter": 10000
+  },
+  "class_weight": "balanced",
+  "estimator_class_weight": "balanced",
+  "seed": 42,
+  "selection_rule": "validation macro-F1, then balanced accuracy, then accuracy; earlier trial wins exact ties",
+  "trained_on_splits": [
+    "train"
+  ],
+  "selected_using_splits": [
+    "validation"
+  ],
+  "test_images_opened_by_training": 0,
+  "images_csv_sha256": "f8726c8c05a19532c739b030743f4b009a6ec1403932ed99f55d68c931cc9535",
+  "counts": {
+    "train": {
+      "inside": {
+        "images": 52,
+        "groups": 8
+      },
+      "outside": {
+        "images": 58,
+        "groups": 9
+      }
+    },
+    "validation": {
+      "inside": {
+        "images": 15,
+        "groups": 2
+      },
+      "outside": {
+        "images": 20,
+        "groups": 3
+      }
+    },
+    "test": {
+      "inside": {
+        "images": 17,
+        "groups": 2
+      },
+      "outside": {
+        "images": 19,
+        "groups": 3
+      }
+    }
+  },
+  "versions": {
+    "python": "3.13.7",
+    "numpy": "2.5.4",
+    "scikit-learn": "1.9.1",
+    "scikit-image": "0.26.0",
+    "Pillow": "12.3.0",
+    "joblib": "1.6.0"
+  },
+  "development_run": false
+}

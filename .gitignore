@@ -57,5 +57,7 @@ outputs/
 original/
 outputs/.app_state.json
 _archive/
+results/
+results_runs_v2/
 *.zip
 *.jpg

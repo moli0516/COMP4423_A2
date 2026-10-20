@@ -11,8 +11,9 @@ Design notes
   folder names, EXIF location data and GPS are never read or used.
 - Models are discovered by scanning ``--outputs-dir`` for ``pipeline.joblib`` files;
   the browser can only choose from that discovered list (no arbitrary paths).
-- The dataset page reads ``images.csv`` / ``locations.csv`` only. It never opens image
-  files, so the held-out test split stays untouched.
+- The dataset page reads ``images.csv`` / ``locations.csv`` only. It never opens image files.
+- The Evaluate page opens the images of one split on request. The test split needs an explicit
+  confirmation and every test evaluation is logged to ``.test_evaluations.json``.
 - The server binds to 127.0.0.1 by default. ``joblib.load`` can execute code, so only
   serve pipelines you trained yourself.
 """
@@ -39,13 +40,17 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))  # lets joblib import src.features when run as a script
 
+from urllib.parse import parse_qs, urlsplit
+
+from src.web_evaluation import Evaluator, UnknownImageError, make_thumbnail
+
 DEFAULT_OUTPUTS_DIR = PROJECT_ROOT / "outputs"
 DEFAULT_DATASET_DIR = PROJECT_ROOT / "dataset_dev"
 WEB_DIR = PROJECT_ROOT / "webui"
 MAX_UPLOAD_BYTES = 25 * 1024 * 1024
 LABEL_TEXT = {1: "Inside PolyU main campus", 0: "Outside PolyU main campus"}
 SPLIT_ORDER = ("train", "validation", "test")
-PAGES = {"/": "index.html", "/config": "config.html"}
+PAGES = {"/": "index.html", "/config": "config.html", "/evaluate": "evaluate.html"}
 
 
 def read_json(path: Path) -> dict:
@@ -185,9 +190,9 @@ class ModelStore:
                 "pipeline": describe_pipeline(pipeline),
             }
 
-    def predict(self, data: bytes) -> dict:
+    def predict(self, data: bytes, model_id: str | None = None) -> dict:
         with self._lock:
-            model_id = self.active_id
+            model_id = model_id or self.active_id
             if model_id is None:
                 raise LookupError("No trained pipeline found. Run training first.")
             pipeline = self.load(model_id)
@@ -305,6 +310,42 @@ class Handler(BaseHTTPRequestHandler):
             return None
         return self.rfile.read(length)
 
+    def _evaluate(self, body: bytes) -> None:
+        try:
+            request = json.loads(body.decode("utf-8"))
+            split = request.get("split")
+            confirm = request.get("confirm_test") is True
+            refresh = request.get("refresh") is True
+        except (ValueError, AttributeError):
+            self._error(HTTPStatus.BAD_REQUEST, "Invalid request.")
+            return
+        try:
+            self._json(self.server.evaluator.evaluate(split, confirm, refresh))
+        except PermissionError as error:
+            self._error(HTTPStatus.FORBIDDEN, str(error))
+        except LookupError as error:
+            self._error(HTTPStatus.SERVICE_UNAVAILABLE, str(error))
+        except ValueError as error:
+            self._error(HTTPStatus.UNPROCESSABLE_ENTITY, str(error))
+        except Exception as error:
+            self._error(HTTPStatus.INTERNAL_SERVER_ERROR, f"Evaluation failed: {error}")
+
+    def _evaluation_image(self) -> None:
+        query = parse_qs(urlsplit(self.path).query)
+        split = (query.get("split") or [""])[0]
+        image_id = (query.get("id") or [""])[0]
+        try:
+            width = int((query.get("w") or ["480"])[0])
+        except ValueError:
+            width = 480
+        try:
+            path = self.server.evaluator.image_file(split, image_id)
+            self._send(HTTPStatus.OK, make_thumbnail(path, width), "image/jpeg")
+        except PermissionError as error:
+            self._error(HTTPStatus.FORBIDDEN, str(error))
+        except (LookupError, ValueError, OSError):
+            self._error(HTTPStatus.NOT_FOUND, "Not found")
+
     def do_GET(self) -> None:  # noqa: N802 (http.server naming)
         path = self.path.split("?", 1)[0]
         web_dir = self.server.web_dir.resolve()
@@ -324,6 +365,8 @@ class Handler(BaseHTTPRequestHandler):
                 self._json(self.store.active_details())
             except Exception as error:  # unreadable pickle, missing import, ...
                 self._error(HTTPStatus.INTERNAL_SERVER_ERROR, f"Could not load the model: {error}")
+        elif path == "/api/evaluate/image":
+            self._evaluation_image()
         elif path == "/api/dataset":
             meta = self.store.metadata(self.store.active_id) if self.store.active_id else {}
             self._json(summarise_dataset(self.server.dataset_dir, meta))
@@ -353,6 +396,8 @@ class Handler(BaseHTTPRequestHandler):
                 self._error(HTTPStatus.BAD_REQUEST, "Unknown model id.")
             except Exception as error:
                 self._error(HTTPStatus.INTERNAL_SERVER_ERROR, f"Could not load the model: {error}")
+        elif path == "/api/evaluate":
+            self._evaluate(body)
         else:
             self._error(HTTPStatus.NOT_FOUND, "Not found")
 
@@ -362,6 +407,7 @@ def create_server(host: str, port: int, outputs_dir: Path, dataset_dir: Path, we
     server.store = ModelStore(outputs_dir)
     server.dataset_dir = Path(dataset_dir)
     server.web_dir = Path(web_dir)
+    server.evaluator = Evaluator(server.store, server.dataset_dir)
     return server
 
 

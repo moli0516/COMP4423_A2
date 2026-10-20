@@ -1,0 +1,20 @@
+.ev-gate { margin-top: 12px; padding: 12px 14px; border: 1px solid #e0b252; background: #fff8e6; border-radius: 8px; }
+.ev-confirm { display: block; margin-top: 8px; font-weight: 600; }
+.ev-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin: 12px 0; }
+.ev-stat { padding: 14px 16px; border: 1px solid #ddd; border-radius: 10px; background: #fff; }
+.ev-value { font-size: 1.7rem; font-weight: 700; word-break: break-all; }
+.ev-label { font-weight: 600; margin-bottom: 2px; }
+.ev-cm { border-collapse: separate; border-spacing: 4px; }
+.ev-cm th { text-align: left; font-weight: 600; padding: 6px 10px; }
+.ev-cm-cell { text-align: center; min-width: 130px; padding: 14px 10px; border-radius: 8px; }
+.ev-cm-count { font-size: 1.8rem; font-weight: 700; }
+.ev-hist { width: 100%; max-width: 680px; height: auto; display: block; }
+.ev-bar { display: inline-block; width: 140px; height: 10px; background: #eee; border-radius: 5px; margin-right: 8px; vertical-align: middle; overflow: hidden; }
+.ev-bar-fill { height: 100%; background: #2ea043; }
+.ev-bar-fill.bad { background: #d9534f; }
+.ev-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; margin: 12px 0; }
+.ev-card { margin: 0; border: 2px solid #ddd; border-radius: 10px; overflow: hidden; background: #fff; }
+.ev-card.wrong { border-color: #d9534f; }
+.ev-card.ok { border-color: #2ea043; }
+.ev-card img { width: 100%; height: 150px; object-fit: cover; display: block; }
+.ev-card figcaption { padding: 8px 10px; font-size: 0.85rem; }

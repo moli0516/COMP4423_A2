@@ -1,24 +1,28 @@
 group_id,class_name,location_description,boundary_verified
-in_002,inside,文康 — location named 文康; provisional candidate; check overlap with in_001,pending
-in_003,inside,玻璃can — location named 玻璃can; exact location requires confirmation,pending
-in_004,inside,Core M — Core M; check scene overlap with MN platform (in_009),pending
-in_005,inside,Industrial Center — location named Industrial Center,pending
-in_006,inside,Library — library scene; check overlap with Library對出草地 (in_007),pending
-in_007,inside,Library對出草地 — lawn/open space opposite the library; check overlap with in_006,pending
-in_008,inside,Main entrance — main entrance candidate; exclude gate-threshold or cross-boundary views,pending
-in_009,inside,MN platform — MN platform; check scene overlap with Core M (in_004),pending
-in_010,inside,R core — Core R,pending
-in_011,inside,U Garden — location named U Garden; exact scene requires confirmation,pending
-in_012,inside,V core — Core V; check overlap with buildings visible in in_001,pending
-in_013,inside,Y core — Core Y,pending
-out_001,outside,Tsim Sha Tsui Mira Place,pending
-out_002,outside,KT,pending
-out_003,outside,Sheung Shui,pending
-out_004,outside,Shek Kip Mei Estate,pending
-out_005,outside,Tai Po Station nearby,pending
-out_006,outside,Kai Tak,pending
-out_007,outside,Tolo Harbour Highway,pending
-out_008,outside,Kwong Fuk Estate Platform,pending
-out_009,outside,Plover Cove Road_Taipo,pending
-out_010,outside,Macao,pending
-out_011,outside,Kwong Fuk Road Bridge,pending
+in_002,inside,Communal Building area - campus building and surroundings,yes
+in_003,inside,Glass-walled canteen area,yes
+in_004,inside,Core M - building exterior and surroundings,yes
+in_005,inside,Industrial Centre - building exterior and surroundings,yes
+in_006,inside,Library - building exterior,yes
+in_007,inside,Lawn opposite the library - open lawn with walkways,yes
+in_008,inside,Main entrance area - camera and scene both inside the campus; gate threshold and cross-boundary views excluded,yes
+in_009,inside,MN platform - elevated open area between buildings,yes
+in_010,inside,Core R - building exterior and surroundings,yes
+in_011,inside,U Garden - landscaped garden area,yes
+in_012,inside,Core V (Jockey Club Innovation Tower) - exterior and walkways around it,yes
+in_013,inside,Core Y - building exterior and surroundings,yes
+out_001,outside,Mira Place shopping mall - Tsim Sha Tsui,yes
+out_002,outside,Kwun Tong (KT) - street and building scene,yes
+out_003,outside,Sheung Shui - town street scene,yes
+out_004,outside,Shek Kip Mei Estate - public housing estate,yes
+out_005,outside,Area near Tai Po Station - station surroundings,yes
+out_006,outside,Kai Tak - open waterfront and development area,yes
+out_007,outside,Tolo Harbour Highway - Tai Po roadside,yes
+out_008,outside,Kwong Fuk Estate platform - Tai Po housing estate podium,yes
+out_009,outside,Plover Cove Road - Tai Po roadside,yes
+out_010,outside,Macao - city street scene,yes
+out_011,outside,Kwong Fuk Road bridge - Tai Po,yes
+out_012,outside,Whampoa - Hung Hom residential area outside the campus boundary,yes
+out_013,outside,MOKO shopping mall - Mong Kok,yes
+out_014,outside,Mong Kok pedestrian bridge,yes
+out_015,outside,Mong Kok Centre - commercial street scene,yes

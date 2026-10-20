@@ -20,7 +20,7 @@ from src.storage import ArtifactStore
 from src.utils.file_io import resolve_image_path
 from src.utils.serialization import to_python
 from .classifier_factory import make_classifier
-from .constants import DEFAULT_GRIDS, FEATURE_SETS, SELECTION_RULE
+from .constants import DEFAULT_GRIDS, FEATURE_SETS, SCALED_CLASSIFIERS, SELECTION_RULE
 from .feature_matrix import extract_matrix, feature_columns
 from .metrics import score_predictions
 from .search import expand_grid, selection_key
@@ -86,7 +86,7 @@ class ModelTrainer:
             for name in self.config.classifiers:
                 scaler = None
                 train_values, val_values = x_train[:, columns], x_val[:, columns]
-                if name == "svm":
+                if name in SCALED_CLASSIFIERS:
                     scaler = StandardScaler().fit(train_values)
                     train_values = scaler.transform(train_values)
                     val_values = scaler.transform(val_values)

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evaluate - PolyU Campus Classifier</title>
+<link rel="stylesheet" href="/static/style.css"><link rel="stylesheet" href="/static/evaluate.css"></head>
+<body data-page="evaluate">
+<header>
+  <h1>PolyU Campus Classifier</h1>
+  <nav><a href="/">Predict</a><a href="/config">Config</a><a href="/evaluate" class="current">Evaluate</a></nav>
+  <span id="modelBadge">loading model...</span>
+</header>
+<main>
+  <section class="card">
+    <h2>Evaluate the active model</h2>
+    <p class="muted">Runs the model selected on the Config page over every image of one split, using the same pipeline as the Predict page. Labels come from images.csv.</p>
+    <div class="controls">
+      <label>Split
+        <select id="evSplit">
+          <option value="validation" selected>validation (used to choose the model)</option>
+          <option value="train">train</option>
+          <option value="test">test (held out)</option>
+        </select>
+      </label>
+      <button id="evRun" class="primary">Run evaluation</button>
+      <button id="evRefresh" class="secondary" disabled>Re-run</button>
+      <span id="evStatus" class="muted"></span>
+    </div>
+    <div id="evTestGate" class="ev-gate hidden">
+      <strong>The test split is your final, unbiased estimate.</strong>
+      Every evaluation is written to <code>.test_evaluations.json</code>. If you adjust the model after looking at these numbers, they are no longer a fair estimate.
+      <label class="ev-confirm"><input type="checkbox" id="evTestConfirm"> I have frozen the model and want to evaluate the test split.</label>
+    </div>
+  </section>
+  <div id="evOutput"></div>
+</main>
+<script src="/static/app.js"></script>
+<script src="/static/evaluate.js"></script>
+</body></html>
